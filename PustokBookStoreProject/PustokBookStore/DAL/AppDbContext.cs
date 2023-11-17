@@ -11,5 +11,14 @@ namespace PustokBookStore.DAL
         }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<Author> Author { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<BookImage> BookImages { get; set; }
+        public DbSet<Book> Books { get; set; }
+
+
+
+
+
     }
 }

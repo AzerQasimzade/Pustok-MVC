@@ -11,8 +11,8 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231117080742_createDbCreateFeatureTableandCreateSliderTable")]
-    partial class createDbCreateFeatureTableandCreateSliderTable
+    [Migration("20231117142929_AllMigration")]
+    partial class AllMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

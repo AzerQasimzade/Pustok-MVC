@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PustokBookStore.DAL;
 
@@ -11,9 +12,11 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231117145731_CreateAuthorandGenreandBookandBookImageTableintoPustokDB")]
+    partial class CreateAuthorandGenreandBookandBookImageTableintoPustokDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +39,7 @@ namespace PustokBookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("AuthorId");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Book", b =>
@@ -82,7 +85,7 @@ namespace PustokBookStore.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.BookImage", b =>

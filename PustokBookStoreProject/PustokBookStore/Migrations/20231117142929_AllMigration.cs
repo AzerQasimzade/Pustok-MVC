@@ -5,7 +5,7 @@
 namespace PustokBookStore.Migrations
 {
     /// <inheritdoc />
-    public partial class createDbCreateFeatureTableandCreateSliderTable : Migration
+    public partial class AllMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
