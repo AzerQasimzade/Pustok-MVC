@@ -10,6 +10,7 @@ namespace PustokBookStore.Controllers
     {
         private readonly AppDbContext _context;
 
+
         public HomeController(AppDbContext context)
         {
             _context = context;
@@ -31,6 +32,19 @@ namespace PustokBookStore.Controllers
                 Books = Books
             };
             return View(homeVM);
+        }
+
+        public IActionResult Details(int id)
+        {
+            Book book = _context.Books
+                .Include(x => x.Author)
+                .Include(x => x.Genre)
+                .Include(x => x.BookImages).
+                FirstOrDefault(x => x.Id == id);
+
+
+            return View(book);
+
         }
     }
 }
