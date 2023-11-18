@@ -66,6 +66,9 @@ namespace PustokBookStore.Migrations
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -206,7 +209,7 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.BookImage", b =>
                 {
                     b.HasOne("PustokBookStore.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("BookImages")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -217,6 +220,11 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("PustokBookStore.Models.Book", b =>
+                {
+                    b.Navigation("BookImages");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Genre", b =>

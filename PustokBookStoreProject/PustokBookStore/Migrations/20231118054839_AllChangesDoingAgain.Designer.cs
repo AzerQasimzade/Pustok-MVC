@@ -12,8 +12,8 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231117150413_ChangeAuthorName")]
-    partial class ChangeAuthorName
+    [Migration("20231118054839_AllChangesDoingAgain")]
+    partial class AllChangesDoingAgain
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,7 +85,7 @@ namespace PustokBookStore.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Book");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.BookImage", b =>

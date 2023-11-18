@@ -12,8 +12,8 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231117150949_BookcolumnAdded")]
-    partial class BookcolumnAdded
+    [Migration("20231118131044_AddIsDeletedColumn")]
+    partial class AddIsDeletedColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,9 @@ namespace PustokBookStore.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -209,7 +212,7 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.BookImage", b =>
                 {
                     b.HasOne("PustokBookStore.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("BookImages")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -220,6 +223,11 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("PustokBookStore.Models.Book", b =>
+                {
+                    b.Navigation("BookImages");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Genre", b =>

@@ -5,13 +5,13 @@
 namespace PustokBookStore.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateAuthorandGenreandBookandBookImageTableintoPustokDB : Migration
+    public partial class AllChangesDoingAgain : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AuthorId",
+                name: "Author",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,7 +20,22 @@ namespace PustokBookStore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AuthorId", x => x.Id);
+                    table.PrimaryKey("PK_Author", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Features",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Icon = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Features", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,7 +52,24 @@ namespace PustokBookStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Book",
+                name: "Sliders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Desc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Order = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sliders", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Books",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -54,15 +86,15 @@ namespace PustokBookStore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.Id);
+                    table.PrimaryKey("PK_Books", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Book_AuthorId_AuthorId",
+                        name: "FK_Books_Author_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "AuthorId",
+                        principalTable: "Author",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Book_Genres_GenreId",
+                        name: "FK_Books_Genres_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "Id",
@@ -83,27 +115,27 @@ namespace PustokBookStore.Migrations
                 {
                     table.PrimaryKey("PK_BookImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BookImages_Book_BookId",
+                        name: "FK_BookImages_Books_BookId",
                         column: x => x.BookId,
-                        principalTable: "Book",
+                        principalTable: "Books",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Book_AuthorId",
-                table: "Book",
-                column: "AuthorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Book_GenreId",
-                table: "Book",
-                column: "GenreId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BookImages_BookId",
                 table: "BookImages",
                 column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_AuthorId",
+                table: "Books",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_GenreId",
+                table: "Books",
+                column: "GenreId");
         }
 
         /// <inheritdoc />
@@ -113,10 +145,16 @@ namespace PustokBookStore.Migrations
                 name: "BookImages");
 
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "Features");
 
             migrationBuilder.DropTable(
-                name: "AuthorId");
+                name: "Sliders");
+
+            migrationBuilder.DropTable(
+                name: "Books");
+
+            migrationBuilder.DropTable(
+                name: "Author");
 
             migrationBuilder.DropTable(
                 name: "Genres");
