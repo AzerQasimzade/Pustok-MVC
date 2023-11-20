@@ -15,6 +15,10 @@ namespace PustokBookStore.DAL
         public DbSet<Genre> Genres { get; set; }
         public DbSet<BookImage> BookImages { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Booktags> BookTags { get; set; }
+        public DbSet<Tags> Tags { get; set; }
+
+
 
 
 

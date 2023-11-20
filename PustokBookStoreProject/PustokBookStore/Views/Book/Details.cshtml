@@ -1,5 +1,8 @@
-﻿@model Book
+﻿@model DetailVM
 
+@{
+   int count = 0;
+}
 <section class="breadcrumb-section">
     <h2 class="sr-only">Site Breadcrumb</h2>
     <div class="container">
@@ -27,13 +30,14 @@
               "asNavFor": ".product-slider-nav"
               }'>
                     <div class="single-slide">
-                        <img src="~/assets/image/products/@Model.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
+                        <img src="~/assets/image/products/@Model.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
                     </div>
                     <div class="single-slide">
-                        <img src="~/assets/image/products/@Model.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
+                        <img src="~/assets/image/products/@Model.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
                     </div>
-                    @foreach (var item in Model.BookImages)
+                    @foreach (var item in Model.Book.BookImages)
                     {
+
                         <div class="single-slide">
                             <img src="~/assets/image/products/@item.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==null)?.Image" alt="">
                         </div>
@@ -52,12 +56,12 @@
               "focusOnSelect": true
               }'>
                     <div class="single-slide">
-                        <img src="~/assets/image/products/@Model.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
+                        <img src="~/assets/image/products/@Model.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
                     </div>
                     <div class="single-slide">
-                        <img src="~/assets/image/products/@Model.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
+                        <img src="~/assets/image/products/@Model.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
                     </div>
-                    @foreach (var item in Model.BookImages)
+                    @foreach (var item in Model.Book.BookImages)
                     {
                         <div class="single-slide">
                             <img src="~/assets/image/products/@item.Book.BookImages.FirstOrDefault(x=>x.IsPrimary==null)?.Image" alt="">
@@ -67,17 +71,24 @@
             </div>
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30 ">
-                    <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-                    <h3 class="product-title">@Model.Name</h3>
+                    <p class="tag-block">Tags:
+                        @foreach (var item in Model.Book.Booktags)
+                        {
+                            count++;
+                            <a href="#">@item.Tag.Name @(Model.Book.Booktags.Count==count ? "" :"," ) </a>
+                        }
+                        
+                    </p>
+                    <h3 class="product-title">@Model.Book.Name</h3>
                     <ul class="list-unstyled">
-                        <li>Ex Tax: <span class="list-value"> £@(Model.SalePrice-(Model.SalePrice*18/100))</span></li>
-                        <li>Brands: <a href="#" class="list-value font-weight-bold"> @Model.Genre.Name</a></li>
-                        <li>Page Counts: <span class="list-value"> @Model.Page</span></li>
-                        <li>Availability: <span class="list-value">@(Model.IsAvailable==true ? "In Stock" : "out of Stock")</span></li>
+                        <li>Ex Tax: <span class="list-value"> £@(Model.Book.SalePrice - (Model.Book.SalePrice * 18 / 100))</span></li>
+                        <li>Brands: <a href="#" class="list-value font-weight-bold"> @Model.Book.Genre.Name</a></li>
+                        <li>Page Counts: <span class="list-value"> @Model.Book.Page</span></li>
+                        <li>Availability: <span class="list-value">@(Model.Book.IsAvailable == true ? "In Stock" : "out of Stock")</span></li>
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">£@(Model.CostPrice - (Model.CostPrice * Model.Discount / 100))</span>
-                        <del class="price-old">£@Model.CostPrice</del>
+                        <span class="price-new">£@(Model.Book.CostPrice - (Model.Book.CostPrice * Model.Book.Discount / 100))</span>
+                        <del class="price-old">£@Model.Book.CostPrice</del>
                     </div>
                     <div class="rating-widget">
                         <div class="rating-block">
@@ -95,7 +106,7 @@
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summery</h4>
                         <p>
-                            @Model.Desc
+                            @Model.Book.Desc
                         </p>
                     </article>
                     <div class="add-to-cart-row">
@@ -271,210 +282,50 @@
                 {"breakpoint":768, "settings": {"slidesToShow": 2} },
                 {"breakpoint":480, "settings": {"slidesToShow": 1} }
             ]'>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="#" class="author">
-                                Lpple
-                            </a>
-                            <h3><a href="product-details.html">Revolutionize Your BOOK With</a></h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="image/products/product-10.jpg" alt="">
-                                <div class="hover-contents">
-                                    <a href="product-details.html" class="hover-image">
-                                        <img src="image/products/product-1.jpg" alt="">
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
+                @foreach (var item in Model.RelatedBooks)
+                {
+                    <div class="single-slide">
+                        <div class="product-card">
+                            <div class="product-header">
+                                <a href="#" class="author">
+                                    @item.Author.FullName
+                                </a>
+                                <h3><a href="product-details.html">@item.Name</a></h3>
+                            </div>
+                            <div class="product-card--body">
+                                <div class="card-image">
+                                    <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
+                                    <div class="hover-contents">
+                                        <a href="product-details.html" class="hover-image">
+                                            <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
                                         </a>
-                                        <a href="wishlist.html" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                           class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                        <div class="hover-btns">
+                                            <a href="cart.html" class="single-btn">
+                                                <i class="fas fa-shopping-basket"></i>
+                                            </a>
+                                            <a href="wishlist.html" class="single-btn">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                            <a href="compare.html" class="single-btn">
+                                                <i class="fas fa-random"></i>
+                                            </a>
+                                            <a href="#" data-toggle="modal" data-target="#quickModal"
+                                               class="single-btn">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
+                                <div class="price-block">
+                                    <span class="price">£@item.SalePrice </span>
+                                    <del class="price-old">£@item.CostPrice</del>
+                                    <span class="price-discount">@item.Discount %</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="#" class="author">
-                                Jpple
-                            </a>
-                            <h3>
-                                <a href="product-details.html">Turn Your BOOK Into High Machine</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="image/products/product-2.jpg" alt="">
-                                <div class="hover-contents">
-                                    <a href="product-details.html" class="hover-image">
-                                        <img src="image/products/product-1.jpg" alt="">
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="wishlist.html" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                           class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="#" class="author">
-                                Wpple
-                            </a>
-                            <h3><a href="product-details.html">3 Ways Create Better BOOK With</a></h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="image/products/product-3.jpg" alt="">
-                                <div class="hover-contents">
-                                    <a href="product-details.html" class="hover-image">
-                                        <img src="image/products/product-2.jpg" alt="">
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="wishlist.html" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                           class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="#" class="author">
-                                Epple
-                            </a>
-                            <h3>
-                                <a href="product-details.html">What You Can Learn From Bill Gates</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="image/products/product-5.jpg" alt="">
-                                <div class="hover-contents">
-                                    <a href="product-details.html" class="hover-image">
-                                        <img src="image/products/product-4.jpg" alt="">
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="wishlist.html" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                           class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="#" class="author">
-                                Hpple
-                            </a>
-                            <h3><a href="product-details.html">a Half Very Simple Things You To</a></h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="image/products/product-6.jpg" alt="">
-                                <div class="hover-contents">
-                                    <a href="product-details.html" class="hover-image">
-                                        <img src="image/products/product-4.jpg" alt="">
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="wishlist.html" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                           class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
+            
             </div>
         </div>
     </section>

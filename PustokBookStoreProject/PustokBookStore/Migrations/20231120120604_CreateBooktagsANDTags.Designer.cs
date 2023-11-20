@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PustokBookStore.DAL;
 
@@ -11,9 +12,11 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231120120604_CreateBooktagsANDTags")]
+    partial class CreateBooktagsANDTags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,11 +82,16 @@ namespace PustokBookStore.Migrations
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("TagsId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("GenreId");
+
+                    b.HasIndex("TagsId");
 
                     b.ToTable("Books");
                 });
@@ -241,6 +249,10 @@ namespace PustokBookStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PustokBookStore.Models.Tags", null)
+                        .WithMany("Books")
+                        .HasForeignKey("TagsId");
+
                     b.Navigation("Author");
 
                     b.Navigation("Genre");
@@ -260,13 +272,13 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Booktags", b =>
                 {
                     b.HasOne("PustokBookStore.Models.Book", "Book")
-                        .WithMany("Booktags")
+                        .WithMany()
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PustokBookStore.Models.Tags", "Tag")
-                        .WithMany("Booktags")
+                        .WithMany()
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -284,8 +296,6 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Book", b =>
                 {
                     b.Navigation("BookImages");
-
-                    b.Navigation("Booktags");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Genre", b =>
@@ -295,7 +305,7 @@ namespace PustokBookStore.Migrations
 
             modelBuilder.Entity("PustokBookStore.Models.Tags", b =>
                 {
-                    b.Navigation("Booktags");
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

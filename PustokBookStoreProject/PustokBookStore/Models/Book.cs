@@ -16,6 +16,7 @@
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
         public List<BookImage> BookImages { get; set; }
+        public List<Booktags> Booktags { get; set; }
 
 
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PustokBookStore.DAL;
 
@@ -11,9 +12,11 @@ using PustokBookStore.DAL;
 namespace PustokBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231120120813_TagsListcolumn")]
+    partial class TagsListcolumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,7 +263,7 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Booktags", b =>
                 {
                     b.HasOne("PustokBookStore.Models.Book", "Book")
-                        .WithMany("Booktags")
+                        .WithMany()
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -284,8 +287,6 @@ namespace PustokBookStore.Migrations
             modelBuilder.Entity("PustokBookStore.Models.Book", b =>
                 {
                     b.Navigation("BookImages");
-
-                    b.Navigation("Booktags");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Genre", b =>

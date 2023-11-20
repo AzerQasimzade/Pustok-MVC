@@ -21,9 +21,10 @@ namespace PustokBookStore.Controllers
             List<Slider> Sliders = _context.Sliders.OrderBy(x => x.Order).ToList();
             List<Feature> Features = _context.Features.ToList();
             List<Book> Books = _context.Books
-                .Include(x=>x.Author)
-                .Include(x=>x.Genre)
-                .Include(x=>x.BookImages)
+                .Include(x => x.Author)
+                .Include(x => x.Genre)
+                .Include(x => x.BookImages)
+               
                 .ToList();
             HomeVM homeVM = new HomeVM
             {
@@ -33,18 +34,11 @@ namespace PustokBookStore.Controllers
             };
             return View(homeVM);
         }
-
-        public IActionResult Details(int id)
-        {
-            Book book = _context.Books
-                .Include(x => x.Author)
-                .Include(x => x.Genre)
-                .Include(x => x.BookImages).
-                FirstOrDefault(x => x.Id == id);
-
-
-            return View(book);
-
-        }
     }
-}
+    }
+
+       
+
+        
+    
+
