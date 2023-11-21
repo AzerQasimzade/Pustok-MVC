@@ -517,6 +517,350 @@
       "PackagePath": "staticwebassets\\assets\\js\\plugins.js"
     },
     {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\css\\maps\\style.css.map",
+      "PackagePath": "staticwebassets\\manage\\css\\maps\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\css\\style.css",
+      "PackagePath": "staticwebassets\\manage\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\fonts\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Black.eot",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Black.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Black.ttf",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Black.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Black.woff",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Black.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Black.woff2",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Black.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Bold.eot",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Bold.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Bold.ttf",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Bold.woff",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Bold.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Bold.woff2",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Light.eot",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Light.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Light.ttf",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Light.woff",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Light.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Light.woff2",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Light.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Medium.eot",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Medium.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Medium.ttf",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Medium.woff",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Medium.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Medium.woff2",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Medium.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Regular.eot",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Regular.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Regular.ttf",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Regular.woff",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Regular.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\fonts\\Roboto\\Roboto-Regular.woff2",
+      "PackagePath": "staticwebassets\\manage\\fonts\\Roboto\\Roboto-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\images\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\auth\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\images\\auth\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\auth\\lockscreen-bg.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\auth\\lockscreen-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\auth\\login-bg.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\auth\\login-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\auth\\register-bg.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\auth\\register-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face1.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face10.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face11.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face12.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face13.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face14.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face15.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face16.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face16.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face17.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face17.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face18.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face18.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face19.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face19.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face2.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face20.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face20.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face21.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face21.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face22.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face23.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face23.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face24.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face24.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face25.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face26.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face26.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face27.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face3.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face4.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face5.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face6.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face7.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face8.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\faces\\face9.jpg",
+      "PackagePath": "staticwebassets\\manage\\images\\faces\\face9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\manage\\images\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\logo-mini.svg",
+      "PackagePath": "staticwebassets\\manage\\images\\logo-mini.svg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\manage\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\js\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\Chart.min.js",
+      "PackagePath": "staticwebassets\\manage\\js\\Chart.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\chart.js",
+      "PackagePath": "staticwebassets\\manage\\js\\chart.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\dashboard.js",
+      "PackagePath": "staticwebassets\\manage\\js\\dashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\data-table.js",
+      "PackagePath": "staticwebassets\\manage\\js\\data-table.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\manage\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\documentation.js",
+      "PackagePath": "staticwebassets\\manage\\js\\documentation.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\file-upload.js",
+      "PackagePath": "staticwebassets\\manage\\js\\file-upload.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\hoverable-collapse.js",
+      "PackagePath": "staticwebassets\\manage\\js\\hoverable-collapse.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\manage\\js\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\off-canvas.js",
+      "PackagePath": "staticwebassets\\manage\\js\\off-canvas.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\tabs.js",
+      "PackagePath": "staticwebassets\\manage\\js\\tabs.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\js\\template.js",
+      "PackagePath": "staticwebassets\\manage\\js\\template.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\.DS_Store",
+      "PackagePath": "staticwebassets\\manage\\vendors\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\base\\vendor.bundle.base.css",
+      "PackagePath": "staticwebassets\\manage\\vendors\\base\\vendor.bundle.base.css"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\base\\vendor.bundle.base.js",
+      "PackagePath": "staticwebassets\\manage\\vendors\\base\\vendor.bundle.base.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\chart.js\\Chart.min.js",
+      "PackagePath": "staticwebassets\\manage\\vendors\\chart.js\\Chart.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\datatables.net-bs4\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\manage\\vendors\\datatables.net-bs4\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\datatables.net-bs4\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\manage\\vendors\\datatables.net-bs4\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\datatables.net\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\manage\\vendors\\datatables.net\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\css\\materialdesignicons.min.css",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\css\\materialdesignicons.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.eot",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.eot"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.svg",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.svg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.ttf",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\wwwroot\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2",
+      "PackagePath": "staticwebassets\\manage\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.PustokBookStore.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

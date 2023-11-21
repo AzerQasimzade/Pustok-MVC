@@ -10,22 +10,20 @@ namespace PustokBookStore.Controllers
     {
         private readonly AppDbContext _context;
 
-
         public HomeController(AppDbContext context)
         {
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Slider> Sliders = _context.Sliders.OrderBy(x => x.Order).ToList();
-            List<Feature> Features = _context.Features.ToList();
-            List<Book> Books = _context.Books
+            List<Slider> Sliders = await _context.Sliders.OrderBy(x => x.Order).ToListAsync();
+            List<Feature> Features =await _context.Features.ToListAsync();
+            List<Book> Books =await _context.Books
                 .Include(x => x.Author)
                 .Include(x => x.Genre)
-                .Include(x => x.BookImages)
-               
-                .ToList();
+                .Include(x => x.BookImages)  
+                .ToListAsync();
             HomeVM homeVM = new HomeVM
             {
                 Sliders = Sliders,

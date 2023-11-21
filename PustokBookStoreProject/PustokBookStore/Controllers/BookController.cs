@@ -16,29 +16,29 @@ namespace PustokBookStore.Controllers
             _context = context;
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id <= 0)
             {
                 return BadRequest();
             }
 
-            Book book = _context.Books
+            Book book = await _context.Books
                 .Include(x => x.Author)
                 .Include(x => x.Genre)
                 .Include(x => x.BookImages)
                 .Include(x=>x.Booktags)
                 .ThenInclude(x=>x.Tag)
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
             if (book is null)
             {
                 return NotFound();
             }
-            List<Book> relatedbooks=_context.Books.Where(x=>x.GenreId==book.GenreId && x.Id!=book.Id)
+            List<Book> relatedbooks= await _context.Books.Where(x=>x.GenreId==book.GenreId && x.Id!=book.Id)
                 .Include(x=>x.Genre)
                 .Include(x=>x.BookImages)  
                 .Include(x=>x.Author)
-                .ToList();
+                .ToListAsync();
             DetailVM detailVM = new DetailVM
             {
                 Book = book,
