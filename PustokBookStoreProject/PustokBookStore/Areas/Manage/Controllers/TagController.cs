@@ -86,6 +86,10 @@ namespace PustokBookStore.Areas.Manage.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Tags tag =await _context.Tags.FirstOrDefaultasync(x => x.Id == id);
+        }
 
     }
 }
