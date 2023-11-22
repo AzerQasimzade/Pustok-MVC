@@ -5,7 +5,7 @@ using PustokBookStore.Models;
 
 namespace PustokBookStore.Areas.Manage.Controllers
 {
-    [Area("manage")]
+    [Area("Manage")]
     public class AuthorController : Controller
     {
         private readonly AppDbContext _context;
@@ -15,13 +15,37 @@ namespace PustokBookStore.Areas.Manage.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Author> authors = _context.Author
-                .Include(x => x.Books)
-                .ToList();
+            List<Author> authors = await _context.Author.Include(x => x.Books).ToListAsync();
+            return View(authors);
+        }
 
+        public IActionResult Create()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Author author)
+        {
+            bool result = await _context.Author.AnyAsync(x => x.FullName == author.FullName);
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            if (result)
+            {
+                ModelState.AddModelError("Fullname", "Eyni adli yazici yarana bilmez");
+                return View();
+            }
+
+            await _context.AddAsync(author);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
