@@ -9,7 +9,6 @@ namespace PustokBookStore.Areas.PustokAdmin.Controllers
             public IActionResult Index()
             {
                 return View();
-            }
-            
+            }        
     }
 }

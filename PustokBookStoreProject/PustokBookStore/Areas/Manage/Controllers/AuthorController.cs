@@ -14,18 +14,15 @@ namespace PustokBookStore.Areas.Manage.Controllers
         {
             _context = context;
         }
-
         public async Task<IActionResult> Index()
         {
             List<Author> authors = await _context.Author.Include(x => x.Books).ToListAsync();
             return View(authors);
         }
-
         public IActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Create(Author author)
         {
@@ -35,16 +32,13 @@ namespace PustokBookStore.Areas.Manage.Controllers
             {
                 return View();
             }
-
             if (result)
             {
                 ModelState.AddModelError("Fullname", "Eyni adli yazici yarana bilmez");
                 return View();
             }
-
             await _context.AddAsync(author);
             await _context.SaveChangesAsync();
-
             return RedirectToAction(nameof(Index));
         }
     }

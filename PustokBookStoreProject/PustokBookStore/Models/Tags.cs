@@ -6,6 +6,6 @@
 
         public string Name { get; set; }
 
-        public List<Booktags> Booktags {  get; set; }  
+        public List<Booktags>? Booktags {  get; set; }  
     }
 }
