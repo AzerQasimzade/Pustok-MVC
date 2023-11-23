@@ -9,65 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PustokBookStore
 build_property.RootNamespace = PustokBookStore
-build_property.ProjectDir = C:\Users\ca.r214.03\Desktop\PustokBookStore\PustokBookStoreProject\PustokBookStore\
+build_property.ProjectDir = C:\Users\ca.r214.03\Desktop\PustokBookStore4\PustokBookStoreProject\PustokBookStore\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ca.r214.03\Desktop\PustokBookStore\PustokBookStoreProject\PustokBookStore
+build_property.MSBuildProjectDirectory = C:\Users\ca.r214.03\Desktop\PustokBookStore4\PustokBookStoreProject\PustokBookStore
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Author/Create.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Author/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEF1dGhvclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Author/Index.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Author/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEF1dGhvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Dashboard/Index.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Author/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEF1dGhvclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Shared/_Layout.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Create.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Slider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFRhZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Index.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFRhZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Update.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/Tag/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFRhZ1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/_ViewImports.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/_ViewStart.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Areas/Manage/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Views/Book/Details.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Views/Book/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Views/Home/Index.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Views/Shared/_Layout.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Views/_ViewImports.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ca.r214.03/Desktop/PustokBookStore/PustokBookStoreProject/PustokBookStore/Views/_ViewStart.cshtml]
+[C:/Users/ca.r214.03/Desktop/PustokBookStore4/PustokBookStoreProject/PustokBookStore/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

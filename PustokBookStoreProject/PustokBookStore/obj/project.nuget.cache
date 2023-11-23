@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y1kFWOTQebecljnhN5ttN6S0WwwT23DiFyjTXmNn1BehSrlMQzhEhrbkaypw0vWwQeKUckQ1ULsz2MFXxsRIbw==",
+  "dgSpecHash": "w6TSt7BoDdKrmdrMgu6s7+g50VEXWnKbo06UuzmsWUWAAYA4Lq9ZM4ylTTbqYd+SZGwmsSOPDntmzwVwFwQeVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore\\PustokBookStoreProject\\PustokBookStore\\PustokBookStore.csproj",
+  "projectFilePath": "C:\\Users\\ca.r214.03\\Desktop\\PustokBookStore4\\PustokBookStoreProject\\PustokBookStore\\PustokBookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ca.r214.03\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ca.r214.03\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

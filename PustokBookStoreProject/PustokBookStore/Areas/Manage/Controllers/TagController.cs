@@ -43,8 +43,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-
         public async Task<IActionResult>Update(int id)
         {
             if (id <= 0)
@@ -67,9 +65,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
             {
                 return View();
             }
-            
-
-
             if (tag == null)
             {
                 return NotFound();
@@ -85,11 +80,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
             tag.Name=tag1.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-        public async Task<IActionResult> Delete(int id)
-        {
-            Tags tag =await _context.Tags.FirstOrDefaultasync(x => x.Id == id);
-        }
-
+        }     
     }
 }

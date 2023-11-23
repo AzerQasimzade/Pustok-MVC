@@ -1,4 +1,5 @@
 ﻿@model Author
+
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
@@ -8,7 +9,7 @@
                 <form class="forms-sample" method="post">
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input asp-for="FullName" class="form-control" placeholder="Name">
+                        <input asp-for="FullName" class="form-control" placeholder="Name" value="@Model.FullName">
                         <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
 
