@@ -10,45 +10,53 @@ namespace PustokBookStore.Areas.Manage.Controllers
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly IWebHostEnvironment _environment;
 
-        public SliderController(AppDbContext context,IWebHostEnvironment environment)
+        public SliderController(AppDbContext context)
         {
             _context = context;
-           _environment = environment;
         }
         public async Task<IActionResult> Index()
         {
             List<Slider> Sliders = await _context.Sliders.ToListAsync();
             return View(Sliders);
         }
-        public async Task<IActionResult> Create()
+
+        public IActionResult Create()
         {
+
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Create(Slider slide)
+        public async Task<IActionResult> Create(Slider slider)
         {
-            string name=Guid.NewGuid().ToString()+slide.Photo.FileName;
-            
-            if (slide.Photo is null)    
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Photo", "Shekil mutleq secilmelidir");
-            }
-           
-            if (slide.Photo.ContentType.Contains("image/"))
-            {
-                ModelState.AddModelError("Photo", "Fayl tipi uygun deyil");
                 return View();
             }
 
-            await _context.AddAsync(slide);
+            if (!slider.Photo.ContentType.Contains("image/"))
+            {
+                ModelState.AddModelError("Photo", "Photo can be must image type");
+                return View();
+            }
+
+            if (slider.Photo.Length > 200 * 1024)
+            {
+                ModelState.AddModelError("Photo", "Photo can not be than 200 kb");
+                return View();
+            }
+
+            FileStream stream = new FileStream(@"C:\Users\lenovo\OneDrive\Masaüstü\AB202\PustokAB202\PustokAB202\wwwroot\uploads\slider\" + slider.Photo.FileName, FileMode.Create);
+
+            slider.Photo.CopyTo(stream);
+
+            slider.Image = slider.Photo.FileName;
+
+            await _context.Sliders.AddAsync(slider);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
     }
 }
