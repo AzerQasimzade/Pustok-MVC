@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="home-content text-center text-sm-left position-relative">
                         <div class="hero-partial-image image-right">
-                            <img src="~/assets/image/bg-images/@item.Image" alt="">
+                            <img src="~/assets/image/bg-images/@item.Photo" alt="">
                         </div>
                         <div class="row no-gutters ">
                             <div class="col-xl-6 col-md-6 col-sm-7">
@@ -1799,10 +1799,10 @@ Deal of the day
                         </div>
                         <div class="product-card--body">
                             <div class="card-image">
-                                <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true).Image" alt="">
+                                <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true)?.Image" alt="">
                                 <div class="hover-contents">
                                     <a asp-controller="book" asp-action="details" asp-route-Id="@item.Id" class="hover-image">
-                                        <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false).Image" alt="">
+                                        <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false)?.Image" alt="">
                                     </a>
                                     <div class="hover-btns">
                                         <a href="cart.html" class="single-btn">
