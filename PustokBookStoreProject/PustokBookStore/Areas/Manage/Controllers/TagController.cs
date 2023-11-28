@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PustokBookStore.Areas.ViewModels;
 using PustokBookStore.DAL;
 using PustokBookStore.Models;
 
@@ -21,14 +22,19 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 .ToListAsync();
             return View(tag);
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public async IActionResult Create()
+        //{
+        //    CreateTagVM tagVM = new CreateTagVM
+        //    {   
+ 
+        //    };
+        //    return View();
+            
+        //}
         [HttpPost]
-        public async Task<IActionResult> Create(Tags tag)
+        public async Task<IActionResult> Create(CreateTagVM tagVM)
         {
-            bool result = await _context.Tags.AnyAsync(x => x.Name == tag.Name);
+            bool result = await _context.Tags.AnyAsync(x => x.Name == tagVM.Name);
 
             if (!ModelState.IsValid)
             {
@@ -39,7 +45,7 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 ModelState.AddModelError("Fullname", "Eyni adli yazici yarana bilmez");
                 return View();
             }
-            await _context.AddAsync(tag);
+            await _context.AddAsync(tagVM);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -54,7 +60,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
             {
                return NotFound();
             }
-
           return View(tag);
         }
         [HttpPost]
@@ -70,8 +75,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 return NotFound();
             }
             bool result= await _context.Tags.AnyAsync(y => y.Name == tag1.Name && y.Id==id);
-
-
             if (result) 
             {
                 ModelState.AddModelError("Name", "Eyni adli yazici yarana bilmez");

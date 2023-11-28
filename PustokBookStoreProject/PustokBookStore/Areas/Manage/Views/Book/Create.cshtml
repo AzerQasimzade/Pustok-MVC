@@ -16,14 +16,22 @@
                         <span asp-validation-for="Page" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputName1">AuthorId</label>
-                        <input asp-for="AuthorId" class="form-control" placeholder="SubTitle">
+                        <label asp-for="AuthorId" for="exampleInputName1">AuthorId</label>
+                        <select asp-for="AuthorId" asp-items="new SelectList(Model.Authors,nameof(Author.Id),nameof(Author.FullName))" class="form-control" placeholder="SubTitle asp-items=">
+                        </select>
                         <span asp-validation-for="AuthorId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputName1">GenreId</label>
-                        <input asp-for="GenreId" class="form-control" placeholder="SubTitle">
+                        <label asp-for="GenreId" for="exampleInputName1">GenreId</label>
+                        <select asp-for="GenreId" asp-items="new SelectList(Model.Genres,nameof(Genre.Id),nameof(Genre.Name))" class="form-control" placeholder="SubTitle asp-items=">
+                        </select>
                         <span asp-validation-for="GenreId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">TagId</label>
+                        <select asp-for="TagIds" class="form-control" placeholder="SubTitle" asp-items="new SelectList(Model.Tags,nameof(Tags.Id),nameof(Tags.Name))">
+                        </select>
+                        <span asp-validation-for="TagIds" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">SalePrice</label>

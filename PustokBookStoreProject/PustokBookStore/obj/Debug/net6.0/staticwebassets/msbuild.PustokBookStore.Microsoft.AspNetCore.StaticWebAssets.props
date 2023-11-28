@@ -432,6 +432,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\354cc65a-2f62-49b0-b646-d7e252d255aaragnar_vikings_grimfrost_large.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/354cc65a-2f62-49b0-b646-d7e252d255aaragnar_vikings_grimfrost_large.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\354cc65a-2f62-49b0-b646-d7e252d255aaragnar_vikings_grimfrost_large.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\71e9bfcb-ad49-48aa-9dc5-f419c887838cragnar_vikings_grimfrost_large.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/71e9bfcb-ad49-48aa-9dc5-f419c887838cragnar_vikings_grimfrost_large.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\71e9bfcb-ad49-48aa-9dc5-f419c887838cragnar_vikings_grimfrost_large.webp))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\best-seller-bg.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>PustokBookStore</SourceId>

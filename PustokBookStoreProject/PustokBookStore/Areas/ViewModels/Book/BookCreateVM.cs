@@ -14,6 +14,12 @@ namespace PustokBookStore.Areas.ViewModels
         public bool IsDeleted { get; set; }
         public int AuthorId { get; set; }
         public int GenreId { get; set; }
+        public List<Author>? Authors { get; set; }
+        public List<Tags>? Tags { get; set; }
+        public List<Genre>? Genres { get; set; }
+
+        public List<int>? TagIds { get; set; }
+
 
     }
 }
