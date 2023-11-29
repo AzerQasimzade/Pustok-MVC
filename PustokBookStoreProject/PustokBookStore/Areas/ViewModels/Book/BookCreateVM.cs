@@ -4,7 +4,6 @@ namespace PustokBookStore.Areas.ViewModels
 {
     public class BookCreateVM
     {
-
         public string Name { get; set; }
         public string Desc { get; set; }
         public int Page { get; set; }
@@ -17,7 +16,6 @@ namespace PustokBookStore.Areas.ViewModels
         public List<Author>? Authors { get; set; }
         public List<Tags>? Tags { get; set; }
         public List<Genre>? Genres { get; set; }
-
         public List<int>? TagIds { get; set; }
 
 

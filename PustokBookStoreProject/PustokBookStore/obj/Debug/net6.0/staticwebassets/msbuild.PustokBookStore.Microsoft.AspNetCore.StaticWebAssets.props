@@ -448,6 +448,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\354cc65a-2f62-49b0-b646-d7e252d255aaragnar_vikings_grimfrost_large.webp))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\3cfa27af-0d19-45fd-a35d-72d4d39f6d81_Saffiremain.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/3cfa27af-0d19-45fd-a35d-72d4d39f6d81_Saffiremain.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\3cfa27af-0d19-45fd-a35d-72d4d39f6d81_Saffiremain.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\4d6f7d05-9045-4448-8fab-274bde203e84Saffiremain.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/4d6f7d05-9045-4448-8fab-274bde203e84Saffiremain.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\4d6f7d05-9045-4448-8fab-274bde203e84Saffiremain.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\71e9bfcb-ad49-48aa-9dc5-f419c887838cragnar_vikings_grimfrost_large.webp))">
       <SourceType>Package</SourceType>
       <SourceId>PustokBookStore</SourceId>
@@ -464,6 +496,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\71e9bfcb-ad49-48aa-9dc5-f419c887838cragnar_vikings_grimfrost_large.webp))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\75ad1df2-fc90-40df-996f-5dda6e899590Saffiremain.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/75ad1df2-fc90-40df-996f-5dda6e899590Saffiremain.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\75ad1df2-fc90-40df-996f-5dda6e899590Saffiremain.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\best-seller-bg.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>PustokBookStore</SourceId>
@@ -479,6 +527,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\best-seller-bg.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\ef21d748-e49e-45a7-b770-e65ec02724acSaffiremain.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/ef21d748-e49e-45a7-b770-e65ec02724acSaffiremain.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\ef21d748-e49e-45a7-b770-e65ec02724acSaffiremain.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\ff64648c-5775-41cd-b731-f527a7402071_8e72d0db-28fe-47b2-bade-c65cb0c2badc.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PustokBookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PustokBookStore</BasePath>
+      <RelativePath>assets/image/bg-images/ff64648c-5775-41cd-b731-f527a7402071_8e72d0db-28fe-47b2-bade-c65cb0c2badc.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\ff64648c-5775-41cd-b731-f527a7402071_8e72d0db-28fe-47b2-bade-c65cb0c2badc.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\bg-images\home-2-slider-1.jpg))">
       <SourceType>Package</SourceType>

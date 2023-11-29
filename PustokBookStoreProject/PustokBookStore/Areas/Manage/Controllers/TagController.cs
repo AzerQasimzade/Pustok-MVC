@@ -22,15 +22,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 .ToListAsync();
             return View(tag);
         }
-        //public async IActionResult Create()
-        //{
-        //    CreateTagVM tagVM = new CreateTagVM
-        //    {   
- 
-        //    };
-        //    return View();
-            
-        //}
         [HttpPost]
         public async Task<IActionResult> Create(CreateTagVM tagVM)
         {

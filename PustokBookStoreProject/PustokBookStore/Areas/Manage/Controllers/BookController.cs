@@ -22,8 +22,7 @@ namespace PustokBookStore.Areas.Manage.Controllers
             List<Book> books = await _context.Books
                 .Include(x=>x.Author)
                 .Include(x=>x.BookImages.Where(x=>x.IsPrimary==true))
-                .Include(x=>x.Genre)
-  
+                .Include(x=>x.Genre) 
                 .ToListAsync();
             return View(books);
         }
