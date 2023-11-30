@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using PustokBookStore.Areas.ViewModels;
 using PustokBookStore.DAL;
 using PustokBookStore.Models;
+using PustokBookStore.Utilities.Extensions;
 
 namespace PustokBookStore.Areas.Manage.Controllers
 {
@@ -74,6 +76,57 @@ namespace PustokBookStore.Areas.Manage.Controllers
                     return View(createBookVm);
                 }
             }
+            //---------------------------Main
+
+            if (!createBookVm.MainPhoto.CheckFileType("image/"))
+            {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
+                ModelState.AddModelError("MainPhoto", "File Tipi Uygun deyil!");
+                return View(createBookVm);
+
+            }
+            if (!createBookVm.MainPhoto.CheckFileLength(300))
+            {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
+                ModelState.AddModelError("MainPhoto", "File Size Uygun deyil!");
+                return View(createBookVm);
+            }
+            //---------------------------------Hover
+            if (!createBookVm.HoverPhoto.CheckFileType("image/"))
+            {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
+                ModelState.AddModelError("HoverPhoto", "File Tipi Uygun deyil!");
+                return View(createBookVm);
+
+            }
+            if (!createBookVm.HoverPhoto.CheckFileLength(300))
+            {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
+                ModelState.AddModelError("HoverPhoto", "File Size Uygun deyil!");
+                return View(createBookVm);
+            }
+
+            BookImage main = new BookImage
+            {
+                IsPrimary = true,
+                Image = createBookVm.MainPhoto.CreateFile(_env.WebRootPath, "assets/image/products"),
+
+            };
+            BookImage hover = new BookImage
+            {
+                IsPrimary = false,
+                Image = createBookVm.HoverPhoto.CreateFile(_env.WebRootPath, "assets/image/products"),
+
+            };
+
             Book book = new Book
             {
 
@@ -85,8 +138,31 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 IsDeleted = createBookVm.IsDeleted,
                 GenreId = createBookVm.GenreId,
                 AuthorId = createBookVm.AuthorId,
-                Booktags = new List<Booktags>()
+                Booktags = new List<Booktags>(),
+                BookImages = new List<BookImage> { main, hover }
+                
             };
+
+            foreach (IFormFile image in createBookVm.Photos)
+            {
+                if (!image.CheckFileType("image/"))
+                {
+                    continue;
+                }
+                if (!image.CheckFileLength(300))
+                {
+                    continue;
+                }
+
+                book.BookImages.Add(new BookImage
+                {
+                    IsPrimary = null,
+                    Image = image.CreateFile(_env.WebRootPath, "assets/image/products")
+
+                });
+            }
+
+
             if (createBookVm.TagIds != null)
             {   
                 foreach (var item in createBookVm.TagIds)

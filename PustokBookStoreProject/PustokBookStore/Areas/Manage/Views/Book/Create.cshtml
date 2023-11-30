@@ -4,8 +4,24 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Update Author</h4>
-                <form class="forms-sample" method="post">
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
+                        <div class="form-group">
+                            <label  asp-for="MainPhoto">Main Image</label>
+                            <input asp-for="MainPhoto" class="form-control" placeholder="SubTitle">
+                            <span asp-validation-for="MainPhoto" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="HoverPhoto" >Hover Image</label>
+                            <input asp-for="HoverPhoto" class="form-control" placeholder="SubTitle">
+                            <span asp-validation-for="HoverPhoto" class="text-danger"></span>
+                        </div> 
+                            <div class="form-group">
+                            <label asp-for="Photos">Images</label>
+                                <input asp-for="Photos" class="form-control" placeholder="SubTitle">
+                                <span asp-validation-for="Photos" class="text-danger"></span>
+                            </div>
+                        
                         <label for="exampleInputName1">Name</label>
                         <input asp-for="Name" class="form-control" placeholder="Title">
                         <span asp-validation-for="Name" class="text-danger"></span>

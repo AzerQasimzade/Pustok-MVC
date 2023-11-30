@@ -18,6 +18,10 @@ namespace PustokBookStore.Areas.ViewModels
         public List<Genre>? Genres { get; set; }
         public List<int>? TagIds { get; set; }
 
+        public IFormFile MainPhoto { get; set; }
+        public IFormFile HoverPhoto { get; set; }
+        public List<IFormFile>? Photos { get; set; }
+
 
     }
 }
