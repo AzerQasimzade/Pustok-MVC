@@ -30,7 +30,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Create(Slider slider)
         {

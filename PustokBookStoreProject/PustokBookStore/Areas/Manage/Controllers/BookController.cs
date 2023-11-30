@@ -20,56 +20,91 @@ namespace PustokBookStore.Areas.Manage.Controllers
         public async Task<IActionResult> Index()
         {
             List<Book> books = await _context.Books
-                .Include(x=>x.Author)
-                .Include(x=>x.BookImages.Where(x=>x.IsPrimary==true))
-                .Include(x=>x.Genre) 
+                .Include(x => x.Author)
+                .Include(x => x.BookImages.Where(x => x.IsPrimary == true))
+                .Include(x => x.Genre)
+                .Include(x=>x.Booktags)
+                .ThenInclude(x=>x.Tag)
                 .ToListAsync();
             return View(books);
         }
         public async Task<IActionResult> Create()
         {
-            BookCreateVM bookVM = new BookCreateVM
-            {
-                Authors = await _context.Author.ToListAsync(),
-                Genres = await _context.Genres.ToListAsync(),
-                Tags = await _context.Tags.ToListAsync(),
-
-            };
-            return View(bookVM);
+            BookCreateVM createBookVm = new BookCreateVM();
+            createBookVm.Authors = await _context.Author.ToListAsync();
+            createBookVm.Genres = await _context.Genres.ToListAsync();
+            createBookVm.Tags = await _context.Tags.ToListAsync();
+            return View(createBookVm);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(BookCreateVM bookVM)
+        public async Task<IActionResult> Create(BookCreateVM createBookVm)
         {
-           
-            bookVM.Authors = await _context.Author.ToListAsync();
-            bookVM.Genres= await _context.Genres.ToListAsync();
-            bookVM.Tags = await _context.Tags.ToListAsync();
             if (!ModelState.IsValid)
             {
-                return View(bookVM);
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
+                return View(createBookVm);
             }
-            if (!await _context.Author.AnyAsync(x => x.Id == bookVM.AuthorId))
+            if (!await _context.Author.AnyAsync(x => x.Id == createBookVm.AuthorId))
             {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
                 ModelState.AddModelError("AuthorId", "Bu id de shair Movcud deyil.");
-                return View(bookVM);
+                return View(createBookVm);
             }
-            if (!await _context.Genres.AnyAsync(x => x.Id == bookVM.GenreId))
+            if (!await _context.Genres.AnyAsync(x => x.Id == createBookVm.GenreId))
             {
+                createBookVm.Authors = await _context.Author.ToListAsync();
+                createBookVm.Genres = await _context.Genres.ToListAsync();
+                createBookVm.Tags = await _context.Tags.ToListAsync();
                 ModelState.AddModelError("GenreId", "Bu id de janr Movcud deyil.");
-                return View(bookVM);
+                return View(createBookVm);
+            }
+            foreach (var tagId in createBookVm.TagIds)
+            {
+                bool tagresult = await _context.Tags.AnyAsync(t => t.Id == tagId);
+                if (!tagresult)
+                {
+                    createBookVm.Authors = await _context.Author.ToListAsync();
+                    createBookVm.Genres = await _context.Genres.ToListAsync();
+                    createBookVm.Tags = await _context.Tags.ToListAsync();
+                    ModelState.AddModelError("TagIds", "bele bir tag yoxdur");
+                    return View(createBookVm);
+                }
             }
             Book book = new Book
             {
-                
-                Name=bookVM.Name,
-                Desc=bookVM.Desc,
-                CostPrice=bookVM.CostPrice,
-                SalePrice=bookVM.SalePrice,
-                Discount=bookVM.Discount,
-                IsDeleted=bookVM.IsDeleted,
-                GenreId=bookVM.GenreId,
-                AuthorId=bookVM.AuthorId
+
+                Name = createBookVm.Name,
+                Desc = createBookVm.Desc,
+                CostPrice = createBookVm.CostPrice,
+                SalePrice = createBookVm.SalePrice,
+                Discount = createBookVm.Discount,
+                IsDeleted = createBookVm.IsDeleted,
+                GenreId = createBookVm.GenreId,
+                AuthorId = createBookVm.AuthorId,
+                Booktags = new List<Booktags>()
             };
+            if (createBookVm.TagIds != null)
+            {   
+                foreach (var item in createBookVm.TagIds)
+                {
+                    if (!await _context.Tags.AnyAsync(t => t.Id == item))
+                    {
+                        ModelState.AddModelError("TagIds", "bele bir tag yoxdur");
+                        createBookVm.Authors = await _context.Author.ToListAsync();
+                        createBookVm.Genres = await _context.Genres.ToListAsync();
+                        createBookVm.Tags = await _context.Tags.ToListAsync();
+                        return View(createBookVm);
+                    }
+                }
+                foreach (var tagId in createBookVm.TagIds)
+                {
+                    book.Booktags.Add(new Booktags { TagId = tagId });
+                }
+            }
             await _context.Books.AddAsync(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -106,8 +141,7 @@ namespace PustokBookStore.Areas.Manage.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> Update(int id,UpdateBookVM bookVM)
-        {
-            
+        {            
             if (!ModelState.IsValid)
             {
                 bookVM.Authors = await _context.Author.ToListAsync();
@@ -117,11 +151,8 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 ModelState.AddModelError("Book", "We have not so Book with this Id");
                 return View(bookVM);
             }
-            Book existed = await _context.Books
-                .Include(x => x.Author)
-                .Include(x => x.Genre)
+            Book existed = await _context.Books 
                 .Include(x => x.Booktags)
-                .ThenInclude(x => x.Tag)
                 .FirstOrDefaultAsync(y => y.Id == id);
  
             if (existed is null)
