@@ -1,7 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using PustokBookStore.Service;
+
+@inject LayoutService service;
+
+@{
+    Dictionary<string, string> settings = await service.GetSettingsAsync();
+}
+
+<!DOCTYPE html>
 <html lang="zxx">
-
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,17 +27,17 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 ">
                             <a asp-controller="home" asp-action="index"class="site-brand">
-                                <img src="~/assets/image/logo.png" alt="">
+                                <img src="~/assets/image/@settings["LogoLink"]" alt="">
                             </a>
                         </div>
                         <div class="col-lg-3">
                             <div class="header-phone ">
                                 <div class="icon">
-                                    <i class="fas fa-headphones-alt"></i>
+                                    @Html.Raw(settings["Nushnik"])
                                 </div>
                                 <div class="text">
-                                    <p>Free Support 24/7</p>
-                                    <p class="font-weight-bold number">+01-202-555-0181</p>
+                                    <p>Free Support @settings["TimeLink"]</p>
+                                    <p class="font-weight-bold number">@settings["Phone"]</p>
                                 </div>
                             </div>
                         </div>
@@ -381,7 +387,7 @@
                     <div class="row align-items-sm-end align-items-center">
                         <div class="col-md-4 col-7">
                             <a href="index.html" class="site-brand">
-                                <img src="~/assets/image/logo.png" alt="">
+                                <img src="~/assets/image/@settings["LogoLink"]" alt="">
                             </a>
                         </div>
                         <div class="col-md-5 order-3 order-md-2">
@@ -706,7 +712,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <a href="index.html" class="site-brand">
-                            <img src="~/assets/image/logo.png" alt="">
+                            <img src="~/assets/image/@settings["LogoLink"]" alt="">
                         </a>
                     </div>
                     <div class="col-lg-8">
@@ -1044,13 +1050,11 @@
                         <div class="footer-contact">
                             <p>
                                 <span class="label">Address:</span><span class="text">
-                                    Example Street 98, HH2 BacHa, New
-                                    York,
-                                    USA
+                                    @settings["AddressLink"]
                                 </span>
                             </p>
                             <p><span class="label">Phone:</span><span class="text">+18088 234 5678</span></p>
-                            <p><span class="label">Email:</span><span class="text">suport@hastech.com</span></p>
+                            <p><span class="label">Email:</span><span class="text">@settings["Email"]</span></p>
                         </div>
                     </div>
                 </div>

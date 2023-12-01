@@ -11,9 +11,12 @@ namespace PustokBookStore.Utilities.Extensions
 
             public static bool CheckFileLength(this IFormFile file, int size)
             {
-                return file.Length > 1024 * size;
+                if(file.Length < 1024 * size)
+            {
+                return true;
             }
-
+            return false;
+            }
 
             public static string CreateFile(this IFormFile file, string root, string folder)
             {
@@ -39,35 +42,6 @@ namespace PustokBookStore.Utilities.Extensions
                     System.IO.File.Delete(path);
                 }
             }
-
-        //    public static async Task<string> CreateFileAsync(this IFormFile file, string root, params string[] folders)
-        //{
-        //    string fileName = Guid.NewGuid().ToString() + file.FileName;
-        //    string path = root;
-        //    for (int i = 0; i < folders.Length; i++)
-        //    {
-        //        path = Path.Combine(path, folders[i]);
-        //    }
-        //    path = Path.Combine(path, fileName);
-        //    using (FileStream fileStream = new FileStream(path, FileMode.Create))
-        //    {
-        //        await file.CopyToAsync(fileStream);
-        //    }
-        //    return fileName;
-        //}
-        //public static async void DeleteFile(this string filename, string root, params string[] folders)
-        //{
-        //    string path = root;
-        //    for (int i = 0; i < folders.Length; i++)
-        //    {
-        //        path = Path.Combine(path, folders[i]);
-        //    }
-        //    path = Path.Combine(path, filename);
-        //    if (File.Exists(path))
-        //    {
-        //        File.Delete(path);
-        //    }
-        //}
 
 
     }

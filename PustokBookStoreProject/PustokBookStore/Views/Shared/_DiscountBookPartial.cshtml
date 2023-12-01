@@ -1,0 +1,49 @@
+﻿@model List<Book>
+@foreach(var item in Model)
+{
+    <div class="single-slide">
+        <div class="product-card">
+            <div class="product-header">
+                <a href="#" class="author">
+                    @item.Name
+                </a>
+                <h3>
+                    <a href="product-details.html">
+                        Rpple iPad with Retina Display
+                        MD510LL/A
+                    </a>
+                </h3>
+            </div>
+            <div class="product-card--body">
+                <div class="card-image">
+                    <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true)?.Image" alt="">
+                    <div class="hover-contents">
+                        <a href="product-details.html" class="hover-image">
+                            <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false)?.Image" alt="">
+                        </a>
+                        <div class="hover-btns">
+                            <a href="cart.html" class="single-btn">
+                                <i class="fas fa-shopping-basket"></i>
+                            </a>
+                            <a href="wishlist.html" class="single-btn">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="compare.html" class="single-btn">
+                                <i class="fas fa-random"></i>
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#quickModal"
+                               class="single-btn">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-block">
+                    <span class="price">£@item.CostPrice</span>
+                    <del class="price-old">£@item.SalePrice</del>
+                    <span class="price-discount">20%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

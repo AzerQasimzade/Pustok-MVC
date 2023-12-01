@@ -18,6 +18,8 @@ namespace PustokBookStore.DAL
         public DbSet<Booktags> BookTags { get; set; }
         public DbSet<Tags> Tags { get; set; }
 
+        public DbSet<Setting> Settings { get; set; }
+
 
 
 

@@ -19,7 +19,7 @@ namespace PustokBookStore.Controllers
         {
             List<Slider> Sliders = await _context.Sliders.OrderBy(x => x.Order).ToListAsync();
             List<Feature> Features =await _context.Features.ToListAsync();
-            List<Book> Books =await _context.Books
+            List<Book> books =await _context.Books
                 .Include(x => x.Author)
                 .Include(x => x.Genre)
                 .Include(x => x.BookImages)  
@@ -28,7 +28,11 @@ namespace PustokBookStore.Controllers
             {
                 Sliders = Sliders,
                 Features = Features,
-                Books = Books
+                Books = books,
+                DiscountBooks=books.Where(x=>x.Discount>0).Take(5).ToList(),
+                NewBooks=books.OrderByDescending(x=>x.Id).Take(5).ToList(),
+                ExpenciveBooks=books.OrderByDescending(x=>x.SalePrice).Take(5).ToList(),
+
             };
             return View(homeVM);
         }

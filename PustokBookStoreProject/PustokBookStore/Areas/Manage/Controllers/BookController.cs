@@ -87,7 +87,7 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 return View(createBookVm);
 
             }
-            if (!createBookVm.MainPhoto.CheckFileLength(300))
+            if (!createBookVm.MainPhoto.CheckFileLength(5000))
             {
                 createBookVm.Authors = await _context.Author.ToListAsync();
                 createBookVm.Genres = await _context.Genres.ToListAsync();
@@ -105,7 +105,7 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 return View(createBookVm);
 
             }
-            if (!createBookVm.HoverPhoto.CheckFileLength(300))
+            if (!createBookVm.HoverPhoto.CheckFileLength(5000))
             {
                 createBookVm.Authors = await _context.Author.ToListAsync();
                 createBookVm.Genres = await _context.Genres.ToListAsync();
@@ -142,14 +142,13 @@ namespace PustokBookStore.Areas.Manage.Controllers
                 BookImages = new List<BookImage> { main, hover }
                 
             };
-
             foreach (IFormFile image in createBookVm.Photos)
             {
                 if (!image.CheckFileType("image/"))
                 {
                     continue;
                 }
-                if (!image.CheckFileLength(300))
+                if (!image.CheckFileLength(5000))
                 {
                     continue;
                 }
@@ -161,8 +160,6 @@ namespace PustokBookStore.Areas.Manage.Controllers
 
                 });
             }
-
-
             if (createBookVm.TagIds != null)
             {   
                 foreach (var item in createBookVm.TagIds)
