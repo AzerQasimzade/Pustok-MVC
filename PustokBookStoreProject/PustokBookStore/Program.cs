@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using PustokBookStore.DAL;
 using PustokBookStore.Service;
+using PustokBookStore.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
