@@ -1,0 +1,123 @@
+﻿@using PustokBookStore.Utilities.Enums;
+@model RegisterVM
+<main class="page-section inner-page-sec-padding-bottom">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb--30 mb-lg--0">
+				<!-- Login Form s-->
+				<form method="post">
+					<div class="login-form">
+						<h4 class="login-title">New Customer</h4>
+						<p><span class="font-weight-bold">I am a new customer</span></p>
+						<div class="row" asp-validation-summary="ModelOnly"></div>
+							<div class="col-md-12 col-12">
+								<label asp-for="Name">Name</label>
+								<input class="mb-0 form-control " asp-for="Name" placeholder="Name"/>
+								<span class="text-danger " asp-validation-for="Name"></span>
+							</div>
+							<div class="col-md-12 col-12">
+								<label asp-for="Surname">Surname</label>
+							    <input class="mb-0 form-control" asp-for="Surname" placeholder="Surname" />
+								<span class="text-danger" asp-validation-for="Surname"></span>
+							</div>
+						<div class="col-md-12 col-12">
+							<label asp-for="Fullname">Fullname</label>
+							<input class="mb-0 form-control" asp-for="Fullname" placeholder="Fulname" />
+							<span class="text-danger" asp-validation-for="Fullname"></span>
+						</div>
+							<div class="col-md-12">
+								<label asp-for="Email">Email</label>
+							    <input class="mb-0 form-control" asp-for="Email" placeholder="Email" />
+								<span class="text-danger" asp-validation-for="Email"></span>
+							</div>
+							<div class="col-md-12">
+								<label asp-for="Password">Passsword</label>
+							    <input class="mb-0 form-control" asp-for="Password" placeholder="Password" />
+								<span class="text-danger" asp-validation-for="Password"></span>
+							</div>
+							<div class="col-md-12">
+								<label asp-for="RepeatPassword">Repeat Password</label>
+							    <input class="mb-0 form-control" asp-for="RepeatPassword" placeholder="Confirm Password" />
+								<span class="text-danger" asp-validation-for="RepeatPassword"></span>
+							</div>
+							<div class="col-md-12 col-12">
+								<label>Gender</label>
+								<div class="form-check form-check-inline">
+									<input type="radio" asp-for="Gender" value="@GenderHelper.Male" />
+									<label class="form-check-label">Male</label>
+								</div>
+
+								<div class="form-check form-check-inline">
+									<input type="radio" asp-for="Gender" value="@GenderHelper.Female" />
+									<label class="form-check-label">Female</label>
+								</div>
+
+								<div class="form-check form-check-inline">
+									<input type="radio" asp-for="Gender" value="@GenderHelper.Others" />
+									<label class="form-check-label">Others</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input type="radio" asp-for="Gender" value="@GenderHelper.NonBinary" />
+									<label class="form-check-label">NonBinary</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input type="radio" asp-for="Gender" value="@GenderHelper.Prefer_not_to_respond" />
+									<label class="form-check-label">Prefer Not to say</label>
+								</div>
+								<span class="text-danger" asp-validation-for="Gender"></span>
+							</div>
+							<div class="col-12">
+							<div class="col-md-12">
+								<button asp-action="register" asp-controller="account" class="btn btn-outlined">Register</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>			
+</div>
+</main>
+<!--=================================
+  Brands Slider
+===================================== -->
+<section class="section-margin">
+	<h2 class="sr-only">Brand Slider</h2>
+	<div class="container">
+		<div class="brand-slider sb-slick-slider border-top border-bottom" data-slick-setting='{
+											"autoplay": true,
+											"autoplaySpeed": 8000,
+											"slidesToShow": 6
+											}' data-slick-responsive='[
+				{"breakpoint":992, "settings": {"slidesToShow": 4} },
+				{"breakpoint":768, "settings": {"slidesToShow": 3} },
+				{"breakpoint":575, "settings": {"slidesToShow": 3} },
+				{"breakpoint":480, "settings": {"slidesToShow": 2} },
+				{"breakpoint":320, "settings": {"slidesToShow": 1} }
+			]'>
+			<div class="single-slide">
+				<img src="image/others/brand-1.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-2.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-3.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-4.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-5.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-6.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-1.jpg" alt="">
+			</div>
+			<div class="single-slide">
+				<img src="image/others/brand-2.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</section>

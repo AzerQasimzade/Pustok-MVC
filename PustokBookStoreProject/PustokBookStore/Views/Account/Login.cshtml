@@ -1,0 +1,35 @@
+﻿<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+	<form action="https://demo.hasthemes.com/pustok-preview/pustok/">
+		<div class="login-form">
+			<h4 class="login-title">Returning Customer</h4>
+			<p><span class="font-weight-bold">I am a returning customer</span></p>
+			<div class="row">
+				<form method="post">
+					<div class="login-form">
+						<h4 class="login-title">New Customer</h4>
+						<p><span class="font-weight-bold">I am a new customer</span></p>
+						<div class="row" asp-validation-summary="ModelOnly"></div>
+						<div class="col-md-12 col-12">
+							<label asp-for="">Name</label>
+							<input class="mb-0 form-control " asp-for="Name" placeholder="Name" />
+							<span class="text-danger " asp-validation-for="Name"></span>
+						</div>
+						<div class="col-md-12 col-12">
+							<label asp-for="Surname">Surname</label>
+							<input class="mb-0 form-control" asp-for="Surname" placeholder="Surname" />
+							<span class="text-danger" asp-validation-for="Surname"></span>
+						</div>
+						<div class="col-12">
+							<div class="col-md-12">
+								<button asp-action="login" asp-controller="account" class="btn btn-outlined">Login</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</form>
+</div>
+		</div>
+	</div>
+</main>

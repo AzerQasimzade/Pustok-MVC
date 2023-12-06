@@ -28,8 +28,8 @@ namespace PustokBookStore.Controllers
                 {
                     Book book = await _context.Books
                         .Include(x => x.BookImages.Where(p => p.IsPrimary == true))
-                        .Include(x=>x.Booktags)
-                        .ThenInclude(x=>x.Tag)
+                        .Include(x => x.Booktags)
+                        .ThenInclude(x => x.Tag)
                         .FirstOrDefaultAsync(x => x.Id == cookie.Id);
                     if (book is not null)
                     {
@@ -45,14 +45,14 @@ namespace PustokBookStore.Controllers
                         items.Add(item);
                     }
                 }
-            }                
+            }
             return View(items);
         }
         public async Task<IActionResult> AddBasket(int id)
         {
-            if(id<=0) return BadRequest();
-            Book book=await _context
-                .Books.FirstOrDefaultAsync(x => x.Id==id);
+            if (id <= 0) return BadRequest();
+            Book book = await _context
+                .Books.FirstOrDefaultAsync(x => x.Id == id);
             if (book is null) return NotFound();
             List<BasketCookieItemVM> basket;
             if (Request.Cookies["Basket"] is null)
@@ -68,9 +68,9 @@ namespace PustokBookStore.Controllers
             else
             {
                 basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
-                BasketCookieItemVM existed = basket.FirstOrDefault(x=>x.Id==id);
+                BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
                 if (existed is null)
-                {      
+                {
                     BasketCookieItemVM item = new BasketCookieItemVM
                     {
                         Id = id,
@@ -81,7 +81,7 @@ namespace PustokBookStore.Controllers
                 else
                 {
                     existed.Count++;
-                }              
+                }
             }
             string json = JsonConvert.SerializeObject(basket);
             Response.Cookies.Append("Basket", json);
@@ -89,17 +89,17 @@ namespace PustokBookStore.Controllers
         }
         public async Task<IActionResult> RemoveBasket(int id)
         {
-			if (id <= 0) return BadRequest();
-			Book book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
-			if (book is null) return NotFound();
-			List<BasketCookieItemVM> basket;
+            if (id <= 0) return BadRequest();
+            Book book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if (book is null) return NotFound();
+            List<BasketCookieItemVM> basket;
             basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
-			BasketCookieItemVM existed =basket.FirstOrDefault(x=>x.Id==id);
+            BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
             basket.Remove(existed);
-            string json= JsonConvert.SerializeObject(basket);
-			Response.Cookies.Append("Basket", json);
-			return RedirectToAction(nameof(Index), "Basket");
-		}
+            string json = JsonConvert.SerializeObject(basket);
+            Response.Cookies.Append("Basket", json);
+            return RedirectToAction(nameof(Index), "Basket");
+        }
         public async Task<IActionResult> PlusBasket(int id)
         {
             if (id <= 0) return BadRequest();
