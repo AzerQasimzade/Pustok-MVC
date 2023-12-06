@@ -1,6 +1,8 @@
 ﻿
 @model List<BasketItemVM>
-
+@{
+	decimal total = 0;
+}
 <!-- Cart Page Start -->
 <main class="cart-page-main-block inner-page-sec-padding-bottom">
 	<div class="cart_area cart-area-padding  ">
@@ -30,6 +32,7 @@
 									
 										@foreach (var item in Model)
 									{
+										total+=item.Price;
 										<tr>
 											<td class="pro-remove">
 												<a asp-action="RemoveBasket" asp-controller="Basket" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
@@ -51,8 +54,7 @@
 											</td>
 											<td class="pro-subtotal"><span>$@item.Total</span></td>
 										</tr>
-									}
-												
+									}												
 								</tbody>
 							</table>
 						</div>
@@ -69,8 +71,8 @@
 					<div class="cart-summary">
 						<div class="cart-summary-wrap">
 							<h4><span>Cart Summary</span></h4>
-							<p>Tax free <span class="text-primary">$</span></p>
-							<h2>Result Total <span class="text-primary">$</span></h2>
+							<p>Tax free <span class="text-primary">$@(total-(total*18)/100)</span></p>
+							<h2>Result Total <span class="text-primary">$@total</span></h2>
 						</div>
 						<div class="cart-summary-button">
 							<a href="checkout.html" class="checkout-btn c-btn btn--primary">Checkout</a>
