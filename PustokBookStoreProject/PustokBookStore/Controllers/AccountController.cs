@@ -59,22 +59,31 @@ namespace PustokBookStore.Controllers
         {
             if (!ModelState.IsValid) return View();
             AppUser existedUser = await _userManager.FindByEmailAsync(loginVM.UserNameOrEmail);
-            if(existedUser is null)
+            if (existedUser is null)
             {
-                existedUser=await _userManager.FindByNameAsync(loginVM.UserNameOrEmail);
-                if(existedUser is null)
+                existedUser = await _userManager.FindByNameAsync(loginVM.UserNameOrEmail);
+                if (existedUser is null)
                 {
                     ModelState.AddModelError(String.Empty, "UserName,Email or Password is incorrect");
                 }
                 return View();
             }
             var result = await _signInManager.PasswordSignInAsync(existedUser, loginVM.Password, loginVM.IsRemembered, true);
-            if (result.Succeeded)
+			if (result.IsLockedOut)
+			{
+				ModelState.AddModelError(String.Empty, "Your Account Blocked because of Fail attempts Please try later");
+			}
+			if (!result.Succeeded)
             {
-                
+                ModelState.AddModelError(String.Empty, "UserName,Email or Password is incorrect");
+                return View();
             }
-
-
+            return RedirectToAction("Index", "Home");
         }
+        public async Task<IActionResult> Logout(LoginVM loginVM)
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+		}
     }
 }

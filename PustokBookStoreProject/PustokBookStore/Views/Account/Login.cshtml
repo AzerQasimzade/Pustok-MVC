@@ -1,35 +1,48 @@
-﻿<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-	<form action="https://demo.hasthemes.com/pustok-preview/pustok/">
-		<div class="login-form">
-			<h4 class="login-title">Returning Customer</h4>
-			<p><span class="font-weight-bold">I am a returning customer</span></p>
-			<div class="row">
-				<form method="post">
-					<div class="login-form">
-						<h4 class="login-title">New Customer</h4>
-						<p><span class="font-weight-bold">I am a new customer</span></p>
-						<div class="row" asp-validation-summary="ModelOnly"></div>
-						<div class="col-md-12 col-12">
-							<label asp-for="">Name</label>
-							<input class="mb-0 form-control " asp-for="Name" placeholder="Name" />
-							<span class="text-danger " asp-validation-for="Name"></span>
-						</div>
-						<div class="col-md-12 col-12">
-							<label asp-for="Surname">Surname</label>
-							<input class="mb-0 form-control" asp-for="Surname" placeholder="Surname" />
-							<span class="text-danger" asp-validation-for="Surname"></span>
-						</div>
-						<div class="col-12">
-							<div class="col-md-12">
-								<button asp-action="login" asp-controller="account" class="btn btn-outlined">Login</button>
+﻿@model LoginVM
+<div class="row justify-content-center">
+
+	<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+		<form action="https://demo.hasthemes.com/pustok-preview/pustok/">
+			<div class="login-form">
+				<h4 class="login-title">Returning Customer</h4>
+				<p><span class="font-weight-bold">I am a returning customer</span></p>
+				<div class="row justify-content-center">
+					<form method="post">
+						<div class="login-form">
+							<h4 class="login-title">New Customer</h4>
+							<p><span class="font-weight-bold">I am a new customer</span></p>
+							<div class="row" asp-validation-summary="ModelOnly"></div>
+							<div class="col-md-12 col-12">
+								<label asp-for="UserNameOrEmail">Username or Email</label>
+								<input class="mb-0 form-control" asp-for="UserNameOrEmail" placeholder="Username or Email" />
+								<span class="text-danger " asp-validation-for="UserNameOrEmail"></span>
+							</div>
+							<div class="col-md-12 col-12">
+								<label asp-for="Password">Password</label>
+								<input class="mb-0 form-control" asp-for="Password" placeholder="Password" />
+								<span class="text-danger" asp-validation-for="Password"></span>
+							</div>
+							<div class="col-md-12 d-flex flex-row">
+								<label asp-for="IsRemembered">Remember_Me</label>
+								<input class="mb-0 form-control" asp-for="IsRemembered">
+							</div>
+							<div class="col-12">
+								<div class="col-md-12">
+									<button class="btn btn-outlined" type="submit">
+										Login
+									</button>
+									<a asp-action="Register" asp-controller="Account"> Dont you have an account? </a>
+								</div>
 							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
-		</div>
-	</form>
-</div>
-		</div>
+		</form>
 	</div>
-</main>
+
+
+</div>
+
+
+
