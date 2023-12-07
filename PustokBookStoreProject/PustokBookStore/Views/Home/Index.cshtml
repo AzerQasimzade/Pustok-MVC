@@ -184,7 +184,7 @@ Home Slider Tab
                                                 <img src="~/assets/image/products/product-1.jpg" alt="">
                                             </a>
                                             <div class="hover-btns">
-                                                <a href="cart.html" class="single-btn">
+                                                <a asp-action="AddBasket" asp-controller="Home" asp-route-id="">
                                                     <i class="fas fa-shopping-basket"></i>
                                                 </a>
                                                 <a href="wishlist.html" class="single-btn">
@@ -257,7 +257,7 @@ Deal of the day
                                         <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false)?.Image" alt="">
                                     </a>
                                     <div class="hover-btns">
-                                        <a href="cart.html" class="single-btn">
+                                        <a asp-action="AddBasket" asp-controller="Home" asp-route-id="@item.Id" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
                                         <a href="wishlist.html" class="single-btn">
@@ -594,7 +594,7 @@ ARTS & PHOTOGRAPHY BOOKS
                                     <img src="~/assets/image/products/product-1.jpg" alt="">
                                 </a>
                                 <div class="hover-btns">
-                                    <a href="cart.html" class="single-btn">
+                                    <a asp-action="AddBasket" asp-controller="Home"  class="single-btn">
                                         <i class="fas fa-shopping-basket"></i>
                                     </a>
                                     <a href="wishlist.html" class="single-btn">

@@ -6,6 +6,7 @@ using PustokBookStore.DAL;
 using PustokBookStore.Models;
 using PustokBookStore.ViewModels;
 using System.Drawing;
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace PustokBookStore.Controllers
@@ -85,7 +86,32 @@ namespace PustokBookStore.Controllers
             }
             string json = JsonConvert.SerializeObject(basket);
             Response.Cookies.Append("Basket", json);
-            return RedirectToAction(nameof(Index), "Basket");
+
+
+
+            List<BasketItemVM> items = new List<BasketItemVM>();
+
+                foreach (var cookie in basket)
+                {
+                    Book newbook = await _context.Books
+                        .Include(x => x.BookImages.Where(p => p.IsPrimary == true))
+                        .FirstOrDefaultAsync(x => x.Id == cookie.Id);
+
+                    if (newbook is not null)
+                    {
+                        BasketItemVM item = new BasketItemVM
+                        {
+                            Name = newbook.Name,
+                            Id = newbook.Id,
+                            Image = newbook.BookImages.FirstOrDefault().Image,
+                            Count = cookie.Count,
+                            Price = newbook.CostPrice,
+                            Total = newbook.CostPrice * cookie.Count,
+                        };
+                        items.Add(item);
+                    }
+                }
+            return PartialView("BasketPartial", items);
         }
         public async Task<IActionResult> RemoveBasket(int id)
         {

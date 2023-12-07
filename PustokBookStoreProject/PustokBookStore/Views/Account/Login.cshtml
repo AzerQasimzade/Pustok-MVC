@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
 
 	<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-		<form action="https://demo.hasthemes.com/pustok-preview/pustok/">
+		<form method="post">
 			<div class="login-form">
 				<h4 class="login-title">Returning Customer</h4>
 				<p><span class="font-weight-bold">I am a returning customer</span></p>
@@ -11,7 +11,7 @@
 						<div class="login-form">
 							<h4 class="login-title">New Customer</h4>
 							<p><span class="font-weight-bold">I am a new customer</span></p>
-							<div class="row" asp-validation-summary="ModelOnly"></div>
+							<div  asp-validation-summary="ModelOnly"></div>
 							<div class="col-md-12 col-12">
 								<label asp-for="UserNameOrEmail">Username or Email</label>
 								<input class="mb-0 form-control" asp-for="UserNameOrEmail" placeholder="Username or Email" />
@@ -28,9 +28,7 @@
 							</div>
 							<div class="col-12">
 								<div class="col-md-12">
-									<button class="btn btn-outlined" type="submit">
-										Login
-									</button>
+									<button class="btn btn-outlined">Login</button>
 									<a asp-action="Register" asp-controller="Account"> Dont you have an account? </a>
 								</div>
 							</div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokBookStore.Areas.ViewModels;
 using PustokBookStore.DAL;
@@ -7,6 +8,8 @@ using PustokBookStore.Models;
 namespace PustokBookStore.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles ="Admin")]
+
     public class TagController : Controller
     {
         private readonly AppDbContext _context;

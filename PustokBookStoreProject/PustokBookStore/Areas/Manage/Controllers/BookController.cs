@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using PustokBookStore.Areas.ViewModels;
@@ -9,6 +10,8 @@ using PustokBookStore.Utilities.Extensions;
 namespace PustokBookStore.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles ="Admin")]
+
     public class BookController : Controller
     {
         private readonly AppDbContext _context;

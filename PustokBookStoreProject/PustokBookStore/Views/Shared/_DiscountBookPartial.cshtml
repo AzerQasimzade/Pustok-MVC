@@ -18,11 +18,11 @@
                 <div class="card-image">
                     <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true)?.Image" alt="">
                     <div class="hover-contents">
-                        <a href="product-details.html" class="hover-image">
+                        <a asp-action="details" asp-controller="books" class="hover-image">
                             <img src="~/assets/image/products/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==false)?.Image" alt="">
                         </a>
                         <div class="hover-btns">
-                            <a asp-action="AddBasket" asp-controller="Basket" asp-route-id="@item.Id" class="single-btn">
+                            <a asp-action="AddBasket" asp-controller="Basket" asp-route-id="@item.Id" class="single-btn add-basket-button">
                                 <i class="fas fa-shopping-basket"></i>
                             </a>
                             <a href="wishlist.html" class="single-btn">

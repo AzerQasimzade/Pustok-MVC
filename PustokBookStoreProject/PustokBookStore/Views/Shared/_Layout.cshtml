@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3 ">
-                            <a asp-controller="home" asp-action="index"class="site-brand">
+                            <a asp-controller="home" asp-action="index" class="site-brand">
                                 <img src="~/assets/image/logo.png" alt="">
                             </a>
                         </div>
@@ -329,11 +329,18 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a>@User.Identity.Name</a>
+                                            <a asp-action="Logout" asp-controller="account" class="font-weight-bold">Logout</a> <br>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Login" asp-controller="account" class="font-weight-bold">Login</a> <br>
+                                        }
+
                                     </div>
                                     <div class="cart-block">
-                                        
                                         @await Html.PartialAsync("BasketPartial",items)
 
                                     </div>
@@ -1099,6 +1106,8 @@
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/ajax-mail.js"></script>
     <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
 </body>
 
 
