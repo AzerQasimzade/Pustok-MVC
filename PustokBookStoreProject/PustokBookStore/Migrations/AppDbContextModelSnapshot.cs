@@ -248,6 +248,36 @@ namespace PustokBookStore.Migrations
                     b.ToTable("Author");
                 });
 
+            modelBuilder.Entity("PustokBookStore.Models.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("bookid")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("bookid");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("PustokBookStore.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -507,6 +537,25 @@ namespace PustokBookStore.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PustokBookStore.Models.BasketItem", b =>
+                {
+                    b.HasOne("PustokBookStore.Models.AppUser", "AppUser")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PustokBookStore.Models.Book", "book")
+                        .WithMany()
+                        .HasForeignKey("bookid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("book");
+                });
+
             modelBuilder.Entity("PustokBookStore.Models.Book", b =>
                 {
                     b.HasOne("PustokBookStore.Models.Author", "Author")
@@ -554,6 +603,11 @@ namespace PustokBookStore.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("PustokBookStore.Models.AppUser", b =>
+                {
+                    b.Navigation("BasketItems");
                 });
 
             modelBuilder.Entity("PustokBookStore.Models.Author", b =>

@@ -21,6 +21,8 @@ namespace PustokBookStore.DAL
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<AppUser> AppUser { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
+
 
 
 

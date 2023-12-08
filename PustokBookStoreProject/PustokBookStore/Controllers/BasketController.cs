@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using NuGet.ContentModel;
@@ -8,16 +9,19 @@ using PustokBookStore.ViewModels;
 using System.Drawing;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 
 namespace PustokBookStore.Controllers
 {
     public class BasketController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BasketController(AppDbContext context)
+        public BasketController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
@@ -56,22 +60,38 @@ namespace PustokBookStore.Controllers
                 .Books.FirstOrDefaultAsync(x => x.Id == id);
             if (book is null) return NotFound();
             List<BasketCookieItemVM> basket;
-            if (Request.Cookies["Basket"] is null)
+            if (User.Identity.IsAuthenticated)
             {
-                basket = new List<BasketCookieItemVM>();
-                BasketCookieItemVM item = new BasketCookieItemVM
+                AppUser user = await _userManager.Users
+                    .Include(x => x.BasketItems)
+                    .FirstOrDefaultAsync(x => x.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+                if (user is null) return NotFound();
+                BasketItem item = new BasketItem
                 {
-                    Id = id,
-                    Count = 1
+                    AppUserId = user.Id,
+                    bookid = book.Id,
+                    Count = 1,
+                    Price = book.CostPrice,
                 };
-                basket.Add(item);
+                foreach (var basitem in user.BasketItems)
+                {
+                    Book book1 = await _context.Books
+                        .Include(p => p.BookImages.Where(bi => bi.IsPrimary == true)).FirstOrDefaultAsync(b => b.Id == item.Id);
+                    if (book1 != null)
+                    {
+                        BasketItemVM basketBookVM=new BasketItemVM
+                        {
+
+                        }
+                    }
+                }
+                
             }
             else
             {
-                basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
-                BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
-                if (existed is null)
+                if (Request.Cookies["Basket"] is null)
                 {
+                    basket = new List<BasketCookieItemVM>();
                     BasketCookieItemVM item = new BasketCookieItemVM
                     {
                         Id = id,
@@ -81,9 +101,26 @@ namespace PustokBookStore.Controllers
                 }
                 else
                 {
-                    existed.Count++;
+                    basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
+                    BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
+                    if (existed is null)
+                    {
+                        BasketCookieItemVM item = new BasketCookieItemVM
+                        {
+                            Id = id,
+                            Count = 1
+                        };
+                        basket.Add(item);
+                    }
+                    else
+                    {
+                        existed.Count++;
+                    }
                 }
+                
+
             }
+
             string json = JsonConvert.SerializeObject(basket);
             Response.Cookies.Append("Basket", json);
 

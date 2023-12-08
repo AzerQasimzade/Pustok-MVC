@@ -8,5 +8,6 @@ namespace PustokBookStore.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public GenderHelper  Gender { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
     }
 }
