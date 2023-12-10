@@ -53,82 +53,86 @@ namespace PustokBookStore.Controllers
             }
             return View(items);
         }
+
         public async Task<IActionResult> AddBasket(int id)
         {
             if (id <= 0) return BadRequest();
             Book book = await _context
                 .Books.FirstOrDefaultAsync(x => x.Id == id);
             if (book is null) return NotFound();
-            List<BasketCookieItemVM> basket;
+            List<BasketCookieItemVM> basket=new List<BasketCookieItemVM>();
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.Users
                     .Include(x => x.BasketItems)
                     .FirstOrDefaultAsync(x => x.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
                 if (user is null) return NotFound();
-                BasketItem item = new BasketItem
+                var basketItem = user.BasketItems.FirstOrDefault(x => x.bookid == id);
+                if (basketItem is null)
                 {
-                    AppUserId = user.Id,
-                    bookid = book.Id,
-                    Count = 1,
-                    Price = book.CostPrice,
-                };
-                foreach (var basitem in user.BasketItems)
-                {
-                    Book book1 = await _context.Books
-                        .Include(p => p.BookImages.Where(bi => bi.IsPrimary == true)).FirstOrDefaultAsync(b => b.Id == item.Id);
-                    if (book1 != null)
+                    user.BasketItems.Add(new BasketItem
                     {
-                        BasketItemVM basketBookVM=new BasketItemVM
-                        {
+                        bookid = book.Id,
+                        Count = 1,
 
-                        }
-                    }
-                }
-                
-            }
-            else
-            {
-                if (Request.Cookies["Basket"] is null)
-                {
-                    basket = new List<BasketCookieItemVM>();
-                    BasketCookieItemVM item = new BasketCookieItemVM
-                    {
-                        Id = id,
-                        Count = 1
-                    };
-                    basket.Add(item);
+                    });
                 }
                 else
                 {
-                    basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
-                    BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
-                    if (existed is null)
+                    basketItem.Count++;
+                }
+                await _context.SaveChangesAsync();
+
+
+                foreach (var dbitem in user.BasketItems)
+                {
+                    Book newbook = await _context.Books
+                        .Include(x => x.BookImages.Where(p => p.IsPrimary == true))
+                        .FirstOrDefaultAsync(x => x.Id == dbitem.bookid);
+
+
+                    if (newbook is not null)
                     {
-                        BasketCookieItemVM item = new BasketCookieItemVM
+                        BasketItemVM basitem = new BasketItemVM
                         {
-                            Id = id,
-                            Count = 1
+                            Name = newbook.Name,
+                            Id = newbook.Id,
+                            Image = newbook.BookImages.FirstOrDefault().Image,
+                            Count = dbitem.Count,
+                            Price = newbook.CostPrice,
+                            Total = newbook.CostPrice * dbitem.Count,
                         };
-                        basket.Add(item);
-                    }
-                    else
-                    {
-                        existed.Count++;
                     }
                 }
-                
-
+                return View();
             }
+           
+            else
+            {
+                string json = Request.Cookies["Basket"];
+                List<BasketItemVM> cookieVMs= new List<BasketItemVM>();
+                BasketItemVM item = null;
+                if (!string.IsNullOrEmpty(json))
+                {
+                    cookieVMs=JsonConvert.DeserializeObject<List<BasketItemVM>>(json);
+                    item=cookieVMs.FirstOrDefault(x => x.Id == id);
+                }
+                if (item != null)
+                {
+                    item.Count++;
+                }
+                else
+                {
+                    BasketItemVM cookieVM = new BasketItemVM()
+                    {
+                        Id = id,
+                        Count = 1,
+                    };
+                    cookieVMs.Add(cookieVM);
+                }
+                Response.Cookies.Append("Basket", JsonConvert.SerializeObject(cookieVMs));
 
-            string json = JsonConvert.SerializeObject(basket);
-            Response.Cookies.Append("Basket", json);
-
-
-
-            List<BasketItemVM> items = new List<BasketItemVM>();
-
-                foreach (var cookie in basket)
+                foreach (var cookie in cookieVMs)
                 {
                     Book newbook = await _context.Books
                         .Include(x => x.BookImages.Where(p => p.IsPrimary == true))
@@ -136,7 +140,7 @@ namespace PustokBookStore.Controllers
 
                     if (newbook is not null)
                     {
-                        BasketItemVM item = new BasketItemVM
+                        BasketItemVM basitem = new BasketItemVM
                         {
                             Name = newbook.Name,
                             Id = newbook.Id,
@@ -145,11 +149,13 @@ namespace PustokBookStore.Controllers
                             Price = newbook.CostPrice,
                             Total = newbook.CostPrice * cookie.Count,
                         };
-                        items.Add(item);
                     }
                 }
-            return PartialView("BasketPartial", items);
+                return PartialView("BasketPartial", basket);
+
+            }
         }
+
         public async Task<IActionResult> RemoveBasket(int id)
         {
             if (id <= 0) return BadRequest();
