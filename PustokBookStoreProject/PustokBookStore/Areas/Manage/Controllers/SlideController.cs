@@ -5,6 +5,7 @@ using PustokBookStore.Areas.ViewModels;
 using PustokBookStore.DAL;
 using PustokBookStore.Models;
 using PustokBookStore.Utilities.Extensions;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace PustokBookStore.Areas.Manage.Controllers
 {
@@ -21,10 +22,19 @@ namespace PustokBookStore.Areas.Manage.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            List<Slider> Sliders = await _context.Sliders.ToListAsync();
-            return View(Sliders);
+            int count = await _context.Sliders.CountAsync();
+            List<Slider> Sliders = await _context.Sliders
+                .Skip((page - 1) * 3).Take(3).ToListAsync();
+            PaginationVM<Slider> paginationVM = new PaginationVM<Slider>()
+            {
+                Items = Sliders,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling((double)count / 3)
+            };
+
+            return View(paginationVM);
         }
 
         public IActionResult Create()

@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PustokBookStore.Areas.ViewModels;
 using PustokBookStore.DAL;
 using PustokBookStore.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace PustokBookStore.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
     public class AuthorController : Controller
     {
         private readonly AppDbContext _context;
@@ -17,10 +19,18 @@ namespace PustokBookStore.Areas.Manage.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            List<Author> authors = await _context.Author.Include(x => x.Books).ToListAsync();
-            return View(authors);
+            int count = await _context.Books.CountAsync();
+            List<Author> authors = await _context.Author.Skip((page - 1) * 3).Take(3)
+                .Include(x => x.Books).ToListAsync();
+            PaginationVM<Author> paginationVM = new PaginationVM<Author>()
+            {
+                Items = authors,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling((double)count / 3)
+            };
+            return View(paginationVM);
         }
 
         public IActionResult Create()

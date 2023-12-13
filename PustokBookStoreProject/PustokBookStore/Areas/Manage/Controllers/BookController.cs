@@ -10,7 +10,7 @@ using PustokBookStore.Utilities.Extensions;
 namespace PustokBookStore.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
 
     public class BookController : Controller
     {
@@ -22,16 +22,25 @@ namespace PustokBookStore.Areas.Manage.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            List<Book> books = await _context.Books
+            int count=await _context.Books.Where(b=>b.IsDeleted==false).CountAsync();
+            List<Book> books = await _context.Books.Skip((page-1)*3).Take(3)
                 .Include(x => x.Author)
-                .Include(x => x.BookImages.Where(x => x.IsPrimary == true))
+                .Include(x => x.BookImages.Where(x => x.IsPrimary == true)).Where(i=>i.IsDeleted==false)
                 .Include(x => x.Genre)
                 .Include(x=>x.Booktags)
                 .ThenInclude(x=>x.Tag)
                 .ToListAsync();
-            return View(books);
+
+            PaginationVM<Book> paginationVM = new PaginationVM<Book>()
+            {
+                Items = books,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling((double)count / 3)
+            };
+
+            return View(paginationVM);
         }
         public async Task<IActionResult> Create()
         {

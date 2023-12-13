@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PustokBookStore.DAL;
 using PustokBookStore.Models;
+using PustokBookStore.Utilities.Exceptions;
 using PustokBookStore.ViewModels;
 
 namespace PustokBookStore.Controllers
@@ -20,7 +21,7 @@ namespace PustokBookStore.Controllers
         {
             if (id <= 0)
             {
-                return BadRequest();
+                throw new WrongRequestHandlerException("Bad Reguest Sended!");
             }
 
             Book book = await _context.Books
@@ -32,7 +33,7 @@ namespace PustokBookStore.Controllers
                 .FirstOrDefaultAsync(x => x.Id == id);
             if (book is null)
             {
-                return NotFound();
+                throw new NotFoundException("Page CanNot Found!");
             }
             List<Book> relatedbooks= await _context.Books.Where(x=>x.GenreId==book.GenreId && x.Id!=book.Id)
                 .Include(x=>x.Genre)
